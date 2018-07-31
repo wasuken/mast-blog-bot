@@ -12,7 +12,7 @@ client =  Mastodon::REST::Client.new(base_url: 'https://mastodon.social', bearer
 
 loop do
   RSS::Parser.parse(url).channel.items.each do|x|
-    client.create_status "#{i.title} \n #{i.link}"
+    client.create_status "#{x.title} \n #{x.link}"
     sleep(60 * 60)
   end
 end
